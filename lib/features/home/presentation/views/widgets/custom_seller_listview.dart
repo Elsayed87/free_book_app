@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomNewestBooksListView extends StatelessWidget {
   const CustomNewestBooksListView({super.key});
- // final BookModel bookModel;
+
 
   @override
   Widget build(BuildContext context) {

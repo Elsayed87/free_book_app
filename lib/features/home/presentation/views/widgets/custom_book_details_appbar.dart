@@ -10,7 +10,9 @@ class CustomBookDetailsAppBar extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               icon: const Icon(
                 Icons.close,
                 size: 22,

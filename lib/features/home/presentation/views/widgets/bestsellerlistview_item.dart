@@ -17,14 +17,14 @@ class NewestBooksListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetailsView);
+        GoRouter.of(context).push(AppRouter.kBookDetailsView, extra: bookModel);
       },
       child: SizedBox(
         height: 125,
         child: Row(
           children: [
             CustomBookImage(
-                imgUrl: bookModel.volumeInfo!.imageLinks?.thumbnail ??url),
+                imgUrl: bookModel.volumeInfo!.imageLinks?.thumbnail ?? url),
             const SizedBox(
               width: 30,
             ),
@@ -45,9 +45,9 @@ class NewestBooksListViewItem extends StatelessWidget {
                     height: 3,
                   ),
                   Text(
-                    bookModel.volumeInfo!.authors?[0]??"",
-                          maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+                    bookModel.volumeInfo!.authors?[0] ?? "",
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: AppStyles.textStyle14
                         .copyWith(color: AppColor.kAuthorColor),
                   ),
@@ -55,16 +55,16 @@ class NewestBooksListViewItem extends StatelessWidget {
                     height: 3,
                   ),
                   Row(
-                    children:  [
+                    children: [
                       const Text(
                         //19.99 €
                         "Free",
                         style: AppStyles.textStyleN20,
                       ),
-                     const  Spacer(),
-                       RatingBookItem(
-                          count: bookModel.volumeInfo?.ratingsCount?? 0,
-                          rating: bookModel.volumeInfo?.averageRating??0 ),
+                      const Spacer(),
+                      RatingBookItem(
+                          count: bookModel.volumeInfo?.ratingsCount ?? 0,
+                          rating: bookModel.volumeInfo?.averageRating ?? 0),
                     ],
                   ),
                 ],

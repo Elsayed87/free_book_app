@@ -6,30 +6,32 @@ import 'package:bookly_app/features/home/presentation/views/widgets/listview_ite
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+  const HomeViewBody({super.key, });
+
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      physics:const  BouncingScrollPhysics(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          CustomAppBar(),
-          FeaturedListViewItem(),
-          SizedBox(
+        children: const  [
+           CustomAppBar(),
+           FeaturedListViewItem(),
+           SizedBox(
             height: 51,
           ),
-          Padding(
+           Padding(
             padding: EdgeInsets.symmetric(horizontal: 30),
             child: Text(
               AppString.homeTitle,
               style: AppStyles.textStyle18,
             ),
           ),
-          SizedBox(
+           SizedBox(
             height: 20,
           ),
-          CustomNewestBooksListView(),
+           CustomNewestBooksListView(),
         ],
       ),
     );
